@@ -157,7 +157,7 @@ void recvPackage(){
                     case QRCodePackage::Package_PackageType_DATA:
                         cout << "Package " << pkg.id() << " received" << endl;
                         int length;
-                        if(cPkgID == lPkgID)
+                        if(cPkgID == tPkgID)
                             length = pkg.data().length();
                         else
                             length = MAX_DATA_LENGTH;
