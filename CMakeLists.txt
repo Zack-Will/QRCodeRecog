@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.24)
+project(QRCodeRecog)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+add_compile_options(-std=c++11)
+add_compile_options(-lthread)
+add_executable(QRCodeRecog main.cpp MD5.cpp MD5.h package.pb.h package.pb.cc)
+set(OpenCV_DIR "D:\\OpenCV\\mingw-build")
+find_package(OpenCV REQUIRED)
+find_package(Protobuf REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+include_directories("C:\\Program Files (x86)\\QRencode\\include")
+include_directories("C:\\Program Files (x86)\\protobuf\\include")
+target_link_libraries(QRCodeRecog ${OpenCV_LIBS})
+target_link_libraries(QRCodeRecog "C:/Program Files (x86)/QRencode/lib/libqrencode.a")
+target_link_libraries(QRCodeRecog ${PROTOBUF_LIBRARY})
+

@@ -1,0 +1,17 @@
+syntax = "proto3";
+option optimize_for = LITE_RUNTIME;
+package QRCodePackage;
+message Package{
+  enum PackageType {
+    HEAD = 0;
+    HASH = 1;
+    NAME = 2;
+    DATA = 3;
+    BACK = 4;
+    FINI = 5;
+  }
+  int32 id = 1;
+  bytes data = 2;
+  int32 len = 3;
+  PackageType type = 4;
+}
